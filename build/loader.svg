@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="68px" height="68px" viewBox="0 0 68 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>Combined Shape</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="-29.1113281%" y2="36.046875%" id="linearGradient-1">
+            <stop stop-color="#9E2130" offset="0%"></stop>
+            <stop stop-color="#D8989F" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic_time_loading" transform="translate(-2.000000, -1.000000)" fill="url(#linearGradient-1)">
+            <path d="M7.08273173,23.0525009 C7.08273173,23.0525009 7.08273173,23.0525009 7.08273173,23.0525009 C5.56014942,26.7336288 4.72,30.7687007 4.72,35 C4.72,52.275467 18.724533,66.28 36,66.28 C53.275467,66.28 67.28,52.275467 67.28,35 C67.28,17.724533 53.275467,3.72 36,3.72 L36,1 C54.7776815,1 70,16.2223185 70,35 C70,53.7776815 54.7776815,69 36,69 C17.2223185,69 2,53.7776815 2,35 C2,30.4376489 2.89861626,26.0851809 4.52850955,22.1099352 C4.54862993,22.0608624 4.58004225,21.9949093 4.62274652,21.9120758 L4.62274173,21.9120733 C4.96614653,21.2459709 5.78451379,20.9843728 6.45061617,21.3277776 C7.07757569,21.6510026 7.35233556,22.4006831 7.08273173,23.0525009 Z" id="Combined-Shape"></path>
+        </g>
+    </g>
+</svg>

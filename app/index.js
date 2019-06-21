@@ -1,0 +1,76 @@
+import '../styles/styles.css';
+import Setup from './config/setup';
+import CardDynamic from './model/cardDynamic'
+import Card from "./model/card";
+import loadingView from './views/loadingView';
+import updateCardView from "./views/updateCardView";
+import addNewCardView from "./views/addNewCardView";
+
+(function (window) {
+
+    const _init = (_) => {
+
+        sessionStorage.clear();
+
+        let CD = new CardDynamic();
+
+        return{
+
+            setUp: function(issuerId, secret, fileName) {
+
+                if(!issuerId || issuerId==='') {
+                    issuerId = "";
+                }
+                if(!secret || secret==='') throw 'secret is required';
+                if(!fileName || fileName==='') throw 'fileName is required';
+
+                new Setup(issuerId, secret, fileName);
+
+            },
+
+            newCard: function(pan, expDate) {
+
+                if(!pan || pan==='') throw 'pan is required';
+                if(!expDate || expDate==='') throw 'expDate is required';
+
+                if(pan && pan!=="" && expDate && expDate!==""){
+                    let newCard = new Card(pan, expDate);
+                    CD.setNewCard(newCard);
+                }
+            },
+            oldCard: function(pan, expDate) {
+
+                if(pan && pan!=="" && expDate && expDate!==""){
+                    let oldCard = new Card(pan, expDate);
+                    CD.setOldCard(oldCard);
+                }
+            },
+            setMerchantList: function(merchantList){
+                if(merchantList && merchantList.length>0){
+                    CD.setMerchantList(merchantList)
+                }
+            },
+            run: function () {
+
+
+                loadingView();
+
+                let oldCard = CD.getOldCard();
+
+                if(oldCard){
+                    setTimeout(() => {
+                        updateCardView(CD);
+                    }, 1000);
+                }else{
+                    setTimeout(() => {
+                        addNewCardView(CD);
+                    }, 1000);
+                }
+
+            }
+        }
+    };
+    window.CardDynamics = {
+        init: _init
+    }
+})(window);

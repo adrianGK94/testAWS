@@ -1,0 +1,5 @@
+#!groovy
+@Library("jenkins-scripts@feature/cardDynamics")
+import com.mo2o.ci.workflow.FrontWorkflow
+def workflow = new FrontWorkflow()
+workflow.init(this)

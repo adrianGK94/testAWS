@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="80px" height="64px" viewBox="0 0 80 64" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <title>ic_email_alert</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Registro-en-Merchants-(Celia)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="08_Fin-de-proceso---Email-validación" transform="translate(-148.000000, -211.000000)">
+            <g id="Group-6" transform="translate(30.000000, 148.000000)">
+                <g id="ic_email_alert" transform="translate(117.000000, 54.000000)">
+                    <rect id="Rectangle" x="0" y="0" width="82" height="82"></rect>
+                    <g id="Group-6" stroke-width="1" fill-rule="evenodd" transform="translate(1.000000, 9.000000)">
+                        <path d="M62.0234375,0 L5.9765625,0 C2.68520313,0 0,2.6928 0,6 L0,46 C0,49.296 2.67325,52 5.9765625,52 L62.0234375,52 C65.3065625,52 68,49.3162667 68,46 L68,6 C68,2.704 65.32675,0 62.0234375,0 Z M61.1981406,4 L34.1267031,31.1777333 L6.82111719,4 L61.1981406,4 Z M3.984375,45.1717333 L3.984375,6.8092 L23.1729922,25.9078667 L3.984375,45.1717333 Z M6.80172656,48 L26.0024297,28.724 L32.7303125,35.4202667 C33.509125,36.1954667 34.7659297,36.1929333 35.5415547,35.4141333 L42.1015625,28.8284 L61.1982734,48 L6.80172656,48 Z M64.015625,45.1716 L44.9189141,26 L64.015625,6.82826667 L64.015625,45.1716 Z" id="Shape" fill="#A3A3A3" fill-rule="nonzero"></path>
+                        <g id="ic_info" transform="translate(68.000000, 52.000000) rotate(180.000000) translate(-68.000000, -52.000000) translate(55.000000, 39.000000)">
+                            <circle id="Oval" fill="#9E2130" cx="13" cy="13" r="12"></circle>
+                            <polygon id="i" fill="#FFFFFF" points="11 17.9845607 11 11 14 11 14 20"></polygon>
+                            <circle id="Oval-2" fill="#FFFFFF" cx="12.5" cy="7.5" r="1.5"></circle>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

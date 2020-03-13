@@ -7,9 +7,9 @@ export default function i18n() {
 				"selectMerchants": "Select the merchants at which you would like to update your payment information. The process can take up to 24 hrs.",
 				"updateAllMerchants": "Update all merchants",
 				"addCardDescription": "Enter the card details of your previous card, select the merchants at which the card was registered and we will update your payment information. The process can take up to 24 hrs.",
-				"addNewCard": "Add new Card",
+				"addNewCard": "Add old Card",
 				"searchMerchants": "Search or type merchant name",
-				"scanNewCard": "Scan new card"
+				"scanNewCard": "Scan old card"
 			},
 			"creditCard": {
 				"title": "Credit Card",
@@ -36,7 +36,7 @@ export default function i18n() {
 				"saveCard": "Save Card"
 			},
 			"newCreditCard": {
-				"title": "Add new Credit Card",
+				"title": "Add old Credit Card",
 				"positionHint": "Position your card in the frame",
 				"manually": "Enter Card Details Manually",
 				"error": {
@@ -58,9 +58,42 @@ export default function i18n() {
 			"saveMerchants": {
 				"button": {
 					"title": "Save merchants"
+				},
+				"disclaimer": {
+					"text": "Some listed merchants may not be affiliated with the service yet.",
+					"reminder": "Reminder"
+				},
+				"owner": "I am the owner of the provided card."
+			},
+			"signedContract": {
+				"alert": {
+					"description": "Card update will become effective by the next payment for the following merchants:",
+					"accept": "Accept"
 				}
-			}
-		};
+			},
+			"modal": {
+				"title": {
+					"info": "Information",
+					"warning": "Warning"
+				},
+				"message": {
+					"delayedChangeMerchants": "Card update will become effective by the next payment for the following merchants:",
+					"noChanges": "No changes were made."
+				},
+				"button": {
+					"understood": "Understood"
+				}
+      },
+      "merchantList": {
+				"title": "E-comm Dynamics",
+				"selectMerchants": "Select the merchants at which you would like to update your payment information. The process can take up to 24 hrs.",
+				"updateAllMerchants": "Update all merchants",
+				"addCardDescription": "Enter the card details of your previous card, select the merchants at which the card was registered and we will update your payment information. The process can take up to 24 hrs.",
+				"addNewCard": "Add old Card",
+				"searchMerchants": "Search or type merchant name",
+				"scanNewCard": "Scan old card"
+			},
+		};		
 	} 
 	/* END OF spanish translation*/
 	/* Default language translation */
@@ -71,9 +104,9 @@ export default function i18n() {
 				"selectMerchants": "Select the merchants at which you would like to update your payment information. The process can take up to 24 hrs.",
 				"updateAllMerchants": "Update all merchants",
 				"addCardDescription": "Enter the card details of your previous card, select the merchants at which the card was registered and we will update your payment information. The process can take up to 24 hrs.",
-				"addNewCard": "Add new Card",
+				"addNewCard": "Add old Card",
 				"searchMerchants": "Search or type merchant name",
-				"scanNewCard": "Scan new card"
+				"scanNewCard": "Scan old card"
 			},
 			"creditCard": {
 				"title": "Credit Card",
@@ -100,7 +133,7 @@ export default function i18n() {
 				"saveCard": "Save Card"
 			},
 			"newCreditCard": {
-				"title": "Add new Credit Card",
+				"title": "Add old Credit Card",
 				"positionHint": "Position your card in the frame",
 				"manually": "Enter Card Details Manually",
 				"error": {
@@ -122,9 +155,33 @@ export default function i18n() {
 			"saveMerchants": {
 				"button": {
 					"title": "Save merchants"
+				},
+				"disclaimer": {
+					"text": "Some listed merchants may not be affiliated with the service yet.",
+					"reminder": "Reminder"
+				},
+				"owner": "I am the owner of the provided card."
+			},
+			"signedContract": {
+				"alert": {
+					"description": "Card update will become effective by the next payment for the following merchants:",
+					"accept": "Accept"
+				}
+			},
+			"modal": {
+				"title": {
+					"info": "Information",
+					"warning": "Warning"
+				},
+				"message": {
+					"delayedChangeMerchants": "Card update will become effective by the next payment for the following merchants:",
+					"noChanges": "No changes were made."
+				},
+				"button": {
+					"understood": "Understood"
 				}
 			}
-		};
+		};		
 	}
 	/* Default language translation */
 }

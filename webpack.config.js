@@ -34,14 +34,15 @@ module.exports = {
 		extensions: ['.js']
 	},
 	devServer: {
-		port: 3000,
+    host: 'localhost', 
+    port: 3000,
 		contentBase: __dirname + '/build',
 		inline: true,
 		headers: {
-			"Access-Control-Allow-Origin": "http://localhost:3000",
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
 		},
-		compress: true,
-		public: 'store-client-nestroia1.c9users.io',
+		compress: true
 	},
 	optimization: {
 		splitChunks: {

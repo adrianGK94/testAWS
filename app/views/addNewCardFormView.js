@@ -62,7 +62,7 @@ function createViewHtml() {
       <div class="modal" id="error-modal">
         <div class="modal-container">
           <h2 class="modal-title">${i18n.error.title}</h2>
-          <div id="error-messages"></div>
+          <div class="modal-body" id="error-messages"></div>
           <a href="#" class="modal-btn" id="btn-modal-close">${i18n.error.retry}</a>
         </div>
       </div>
@@ -173,7 +173,7 @@ function openModal(formValidations) {
   const errorMessage = document.getElementById('error-messages');
   errorMessage.innerHTML = formValidations;
 
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
 
   closeButton.onclick = () => {
     modal.style.display = 'none';

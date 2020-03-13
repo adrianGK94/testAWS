@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="312px" height="192px" viewBox="0 0 312 192" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 60 (88103) - https://sketch.com -->
+    <title>Path 3</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#A3A3A3" offset="0%"></stop>
+            <stop stop-color="#686868" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Registro-en-Merchants-(Celia)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="05.3_Registro---Método-de-pago-(complejo-cuentas-bancarias)-" transform="translate(-31.000000, -376.000000)" fill="url(#linearGradient-1)" stroke="#D4D4D4">
+            <polygon id="Path-3" points="32 567 86.7058824 567 104.941176 567 123.176471 567 141.411765 567 159.647059 567 177.882353 567 196.117647 567 214.352941 567 232.588235 567 250.823529 567 269.058824 567 287.294118 567 305.529412 567 323.764706 567 342 567 342 377 32 377"></polygon>
+        </g>
+    </g>
+</svg>

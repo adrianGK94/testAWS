@@ -1,0 +1,8 @@
+ISSUER_ID;ISSUER_MERCHANT_ID;ISSUER_MERCHANT_NAME;COUNTRY;CHANNEL;NUMBERTRX;LOGO;CD_SIGNED_CONTRACT
+1017;77777773;Amazon;ES;mobile;1;/dummy.svg;0
+1017;33;e-bay;ES;mobile;1;/dummy.svg;1
+1017;34;Spotify;ES;mobile;1;/dummy.svg;2
+1017;35;Uber;ES;mobile;1;/dummy.svg;2
+1017;36;Cabify;ES;mobile;1;/dummy.svg;2
+1017;37;Netflix;ES;mobile;1;/dummy.svg;2
+1017;38;National Geographic;ES;mobile;1;/dummy.svg;2

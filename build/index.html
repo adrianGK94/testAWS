@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Deeppayments</title>
+
+  <script src="deep-payments.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
+
+
+  <style>
+    .container {
+      background-color: #9E2130;
+      min-height: 100vh;
+      height: auto;
+      padding-top: 60px;
+    }
+
+    input {
+      width: 100%;
+      height: 34px;
+      margin-bottom: 10px;
+    }
+
+    #box {
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 350px;
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid;
+      margin: 0px auto;
+    }
+
+    button {
+      border: 0;
+      background: #9E2130;
+      color: #FFFFFF;
+      padding: 10px;
+      width: 300px;
+      text-align: center;
+      margin: 10px;
+    }
+
+    button img {
+      margin-left: 5px;
+      display: none;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="container">
+    <div id="box">
+      ocPan:<br>
+      <input type="text" name="ocPan" placeholder="4200000000000018" id="ocPan"><br>
+      ocExpDate:<br>
+      <input type="text" name="ocExpDate" placeholder="012021" value="012021" id="ocExpDate"><br>
+      ncPan:<br>
+      <input type="text" name="ncPan" placeholder="4200000000000019" id="ncPan"><br>
+      ncExpDate:<br>
+      <input type="text" name="ncExpDate" placeholder="012019" value="012019" id="ncExpDate"><br>
+      requestId:<br>
+      <input type="text" name="ncExpDate" placeholder="447" id="requestId"><br>
+      <button id="btn-start">START </button>
+      <button id="btn-update">UPDATE CARD <img src="loader.gif" id="loader" /></button>
+      <button id="btn-newMerchant">New Merchant </button>
+    </div>
+
+    <table style="width: 80%; background: #FFFFFF; margin: 15px auto; border: 2px solid #000; font-size: 12px"
+      border="1" cellpadding="12">
+      <tr>
+        <th>
+          Use case
+        </th>
+        <th>
+          Old PAN
+        </th>
+        <th>
+          New Pan
+        </th>
+      </tr>
+      <tr>
+        <td>000: OK, card succesfully updated</td>
+        <td>4200000000000018</td>
+        <td>4200000000000019</td>
+      </tr>
+      <tr>
+        <td>301: Old Card not found on Merchant/PSP side</td>
+        <td>4012000300002001</td>
+        <td>4012000300002002</td>
+      </tr>
+      <tr>
+        <td>302: New Card was already updated
+        <td>5413330300001006</td>
+        <td>5413330300001007</td>
+      </tr>
+      <tr>
+        <td>304: Multiple registrations found for the Card, should be manually updated</td>
+        <td>4012000300001003</td>
+        <td>4012000300001004</td>
+      </tr>
+      <tr>
+        <td>305: Card blacklisted or disabled on PSP, should be manually updated</td>
+        <td>4012000300003009</td>
+        <td>4012000300003010</td>
+      </tr>
+      <tr>
+        <td>501: Unlisted error on Merchant/PSP</td>
+        <td>5413330300003002</td>
+        <td>5413330300003003</td>
+      </tr>
+
+    </table>
+  </div>
+
+  <div id="app"></div>
+
+</body>
+<script type="text/javascript">
+  document.getElementById('btn-start').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    let ocPan = document.getElementById('ocPan').value;
+    localStorage.setItem('ocPan', ocPan);
+    let ocExpDate = document.getElementById('ocExpDate').value;
+    let ncPan = document.getElementById('ncPan').value;
+    localStorage.setItem('ncPan', ncPan);
+    let ncExpDate = document.getElementById('ncExpDate').value;
+    let cdChangeRequestId = document.getElementById('requestId').value;
+
+    let secret = "mo2o";
+    let merchantsFileCsv = 'issuer_1017_merchants';
+    let changeMerchants = [];
+
+    if (cdChangeRequestId) {
+
+      try {
+        const proxyurl = "https://cors-anywhere.herokuapp.com/";
+        var url = "https://deeppayments-carddynamicsws-dev.mo2o.com/change/" + cdChangeRequestId;
+
+        var xhr = new XMLHttpRequest()
+        xhr.open('GET', proxyurl + url, true)
+        xhr.onload = function () {
+          let json = JSON.parse(xhr.responseText);
+          if (xhr.readyState == 4 && xhr.status == "200") {
+            i = 0;
+
+            json.forEach(function (element) {
+
+              let temp = {
+                "issuerChangeRequestId": "",
+                "issuerMerchantId": "",
+                "issuerMerchantName": "",
+                "responseCode": ""
+              };
+
+              temp.issuerChangeRequestId = json[i].issuerChangeRequestId;
+              temp.issuerMerchantId = json[i].issuerMerchantId;
+              temp.issuerMerchantName = json[i].issuerMerchantName;
+              temp.responseCode = json[i].responseCode;
+              changeMerchants.push(temp);
+
+              i++;
+            });
+
+            const cardDynamics = CardDynamics.init();
+            cardDynamics.setUp(1017, secret, merchantsFileCsv);
+            cardDynamics.newCard(ncPan, ncExpDate);
+            cardDynamics.oldCard(ocPan, ocExpDate); // Optional
+            cardDynamics.setMerchantList(changeMerchants); // Optional
+            cardDynamics.run();
+
+          } else {
+            console.error(users);
+          }
+        }
+
+        xhr.send(null);
+
+      } catch (e) {
+        console.log(e);
+      }
+
+    } else {
+      const cardDynamics = CardDynamics.init();
+      cardDynamics.setUp(1017, secret, merchantsFileCsv);
+      cardDynamics.newCard(ncPan, ncExpDate);
+      cardDynamics.oldCard(ocPan, ocExpDate);
+      cardDynamics.setMerchantList(changeMerchants);
+      cardDynamics.run();
+    }
+  });
+
+  document.getElementById('btn-update').addEventListener('click', function (e) {
+    e.preventDefault();
+
+    let ocPan = document.getElementById('ocPan').value;
+    let ocExpDate = document.getElementById('ocExpDate').value;
+    let ncPan = document.getElementById('ncPan').value;
+    let ncExpDate = document.getElementById('ncExpDate').value;
+    let cdChangeRequestId = localStorage.getItem('cdChangeRequestId');
+
+    let secret = "mo2o";
+    let merchantsFileCsv = 'issuer_1017_merchants';
+    let changeMerchants = [];
+
+    try {
+      document.getElementById('loader').style.display = 'inline-block';
+
+      const proxyurl = "https://cors-anywhere.herokuapp.com/";
+      var url = "https://deeppayments-carddynamicsws-dev.mo2o.com/change/" + cdChangeRequestId;
+
+      var xhr = new XMLHttpRequest()
+      xhr.open('GET', proxyurl + url, true)
+      xhr.onload = function () {
+        let jsonUpdate = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+          i = 0;
+
+          if (jsonUpdate) {
+            jsonUpdate.forEach(function (element) {
+
+              let temp = {
+                "issuerChangeRequestId": "",
+                "issuerMerchantId": "",
+                "issuerMerchantName": "",
+                "responseCode": ""
+              };
+
+              temp.issuerChangeRequestId = jsonUpdate[i].issuerChangeRequestId;
+              temp.issuerMerchantId = jsonUpdate[i].issuerMerchantId;
+              temp.issuerMerchantName = jsonUpdate[i].issuerMerchantName;
+              temp.responseCode = jsonUpdate[i].responseCode;
+              changeMerchants.push(temp);
+
+              i++;
+            });
+
+            const cardDynamics = CardDynamics.init();
+            cardDynamics.setUp(1017, secret, merchantsFileCsv);
+            cardDynamics.newCard(ncPan, ncExpDate);
+            cardDynamics.oldCard(ocPan, ocExpDate);
+            cardDynamics.setMerchantList(changeMerchants);
+            cardDynamics.run();
+          } else {
+            alert('Not available. Try again')
+          }
+        }
+      }
+
+      xhr.send(null);
+
+    } catch (e) {
+      console.log(e);
+    }
+
+  });
+
+  document.getElementById('btn-newMerchant').addEventListener('click', function (e) {
+    const cardDynamics = CardDynamics.init();
+    let secret = "mo2o";
+    let merchantsFileCsv = 'issuer_1017_merchants';
+    const personalInfo = {
+      'email': 'pepe@gmail.com',
+      'country': 'portugal',
+    };
+    const paymentMethods = {
+      creditCards: [{
+          cardHolder: 'Pepe', // Required
+          pan: '400000000000018', // Required
+          expDate: '1125', // Required
+          cvv: '815', // Optional
+          country: 'es', // Required
+          currency: 'eur', // Required
+          cardBackground: 'assets/img/bg-card-bbva.jpg', // Optional
+          bankLogo: 'assets/img/logo-bbva.png', // Optional
+        },
+        {
+          cardHolder: 'María', // Required
+          pan: '400000000000019', // Required
+          expDate: '1125', // Required
+          cvv: 999, // Optional
+          country: 'es', // Required
+          currency: 'eur', // Required
+          cardBackground: '', // Optional
+          bankLogo: '', // Optional
+        }
+      ],
+      bankAccounts: [{
+        iban: 'ES00 0000 0000 0002', // Required
+        bicSwift: '09138', // Optional
+        accountHolder: 'Pepe García Riveiros', // Optional
+        bankAccountType: 'SAVINGS', // Optional
+        bankName: 'BBVA', // Optional
+        bankAccountNum: '123', // Optional
+        bankAccountName: 'bankAccountName', // Optional
+        bankRoutingNum: 'bankRoutingNum', // Optional
+        bankCurrency: 'eur', // Optional
+        bankCountry: 'es', // Optional
+        bankCode: 'bankCode', // Optional
+        bankAddress: 'bankAddress', // Optional
+        bankBranchCode: 'bankBranchCode', // Optional
+        bankBranchName: 'bankBranchName', // Optional
+        bankSubBranchCode: 'bankSubBranchCode', // Optional
+        bankSortCode: 'bankSortCode', // Optional
+        bankBsbCode: 'bankBsbCode', // Optional
+        bankInstitutionNo: '991823912368320', // Optional
+        accountBackground: 'assets/img/bg-card-bbva.jpg', // Optional
+        bankLogo: 'assets/img/logo-bbva.png', // Optional
+      }, {
+        iban: 'ES00 0000 0000 0003', // Required
+        bicSwift: '09138', // Optional
+        accountHolder: 'Pepe García Riveiros', // Optional
+        bankAccountType: 'SAVINGS', // Optional
+        bankName: 'Santander', // Optional
+        bankAccountNum: '123', // Optional
+        bankAccountName: 'bankAccountName', // Optional
+        bankRoutingNum: 'bankRoutingNum', // Optional
+        bankCurrency: 'eur', // Optional
+        bankCountry: 'es', // Optional
+        bankCode: 'bankCode', // Optional
+        bankAddress: 'bankAddress', // Optional
+        bankBranchCode: 'bankBranchCode', // Optional
+        bankBranchName: 'bankBranchName', // Optional
+        bankSubBranchCode: 'bankSubBranchCode', // Optional
+        bankSortCode: 'bankSortCode', // Optional
+        bankBsbCode: 'bankBsbCode', // Optional
+        bankInstitutionNo: 'error', // Optional
+        accountBackground: '', // Optional
+        bankLogo: '', // Optional
+      }]
+    };
+    cardDynamics.setUp(1017, secret, merchantsFileCsv);
+    cardDynamics.addNewMerchant(paymentMethods, personalInfo);
+  });
+</script>
+
+</html>

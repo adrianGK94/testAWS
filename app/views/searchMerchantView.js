@@ -47,7 +47,7 @@ function createViewHtml() {
       <div class="modal" id="error-modal">
         <div class="modal-container">
           <h2 class="modal-title">${i18n.error.title}</h2>
-          <div id="error-messages">${i18n.merchants.notFound}</div>
+          <div class="modal-body" id="error-messages">${i18n.merchants.notFound}</div>
           <a href="#" class="modal-btn" id="btn-modal-close">${i18n.error.retry}</a>
         </div>
       </div>
@@ -73,7 +73,7 @@ function createMerchantListViewHtml(cardDynamic) {
         html += `
         <!--search-item-->
         <div class="checkbox-bl-type2">
-          <input type="checkbox" id="ch-${merchant.issuerMerchantId}" name="ch-${merchant.issuerMerchantId}" >
+          <input type="checkbox" id="ch-${merchant.issuerMerchantId}" name="ch-${merchant.issuerMerchantId}" data-signed-contract="${merchant.cdSignedContract}">
           <label for="ch-${merchant.issuerMerchantId}" class="checkbox-label"><img src="${icon}" alt="">${merchant.issuerMerchantName}</label>
         </div>
         <!--END OF search-item-->
@@ -155,7 +155,7 @@ function updateMerchantListView(merchantList) {
       html += `
         <!--search-item-->
         <div class="checkbox-bl-type2">
-          <input type="checkbox" id="ch-${merchant.issuerMerchantId}" name="ch-${merchant.issuerMerchantId}" >
+          <input type="checkbox" id="ch-${merchant.issuerMerchantId}" name="ch-${merchant.issuerMerchantId}" data-signed-contract="${merchant.cdSignedContract}">
           <label for="ch-${merchant.issuerMerchantId}" class="checkbox-label"><img src="${icon}" alt="">${merchant.issuerMerchantName}</label>
         </div>
         <!--END OF search-item-->
@@ -175,14 +175,16 @@ function getSelectedMerchants(){
   if (mInputs && mInputs.length > 0) {
     mInputs.forEach(item => {
       if (item.checked) {
-        let id = item.id.substring(3);
+        const id = item.id.substring(3);
+        const cdSignedContract = item.getAttribute("data-signed-contract");
         let name;
+
         mLabels.forEach(label=>{
           if(label.htmlFor === item.id){
             name = label.innerText;
           }
         });
-        mList.push({issuerMerchantId : id, issuerMerchantName : name});
+        mList.push({issuerMerchantId : id, issuerMerchantName : name, cdSignedContract: cdSignedContract});
       }
     });
   }
@@ -195,7 +197,9 @@ function setSaveButtonEventListener(cardDynamic) {
     e.preventDefault();
     let selectedMerchants = getSelectedMerchants();
     let currentMerchants = cardDynamic.getMerchantList();
-    if(!currentMerchants)currentMerchants = [];
+    if(!currentMerchants) {
+      currentMerchants = [];
+    }
     selectedMerchants.forEach(item => {
       currentMerchants.push(item);
     });
@@ -233,7 +237,7 @@ function getAvailableMerchantList(list) {
 function removeFirstLine(text){
   var lines = text.split('\n');
   lines.splice(0,1);
-  lines.unshift("issuerId;issuerMerchantId;issuerMerchantName;Country;Channel;NumerTRX;Logo");
+  lines.unshift("issuerId;issuerMerchantId;issuerMerchantName;Country;Channel;NumerTRX;Logo;cdSignedContract");
   return  lines.join('\n');
 }
 
@@ -280,7 +284,7 @@ function openModal() {
   const modal = document.getElementById('error-modal');
   const closeButton = document.getElementById('btn-modal-close');
 
-  modal.style.display = 'block';
+  modal.style.display = 'flex';
 
   closeButton.onclick = () => {
     modal.style.display = 'none';

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+​
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Deeppayments</title>
+    ​
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    ​
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/tiny-slider.css">
+</head>
+<body class="bg-gray">
+​
+<!--header-->
+<header role="banner">
+    <div class="row">
+        <div class="header-main">
+            <a href="#" class="header-link"><span class="icon-back"></span></a>
+            <h1 class="header-title">Create account</h1>
+        </div>
+        <div class="header-account">
+            <div class="header-account-container">
+                <img src="assets/img/dummy.svg" alt="">
+                <span class="header-account-text">AliExpress</span>
+            </div>
+        </div>
+        ​
+    </div>
+</header>
+<!--END OF header-->
+​
+<!--main-->
+<div role="main" class="account-form">
+    <div class="row">
+        ​
+        <div class="account-form-header">
+            <h2 class="account-form-title">Payment method</h2>
+            <span class="account-form-step">Step 2 of 2</span>
+        </div>
+        ​
+        <p class="account-form-desc">Choose a payment method</p>
+        ​
+        ​
+        <ul class="account-tabs" id="paymentTabs">
+            <li class="active" onclick="showPayment(1)">
+                Credit cards
+            </li>
+            <li onclick="showPayment(2)">
+                Bank accounts
+            </li>
+        </ul>
+        ​
+        <!--Credit card block-->
+        <div id="paymentCredit" class="account-bl show">
+            <ul class="slider-credit" id="slider-credit">
+                <li>
+                    <!--credit card-->
+                    <div class="credit-card">
+                        <img src="assets/img/dummy-card.svg" alt="">
+                        <div class="card-data">
+                            <span class="card-number">**** 7890</span>
+                            <div class="card-expired">
+                                <span class="card-expired-desc">Expiration date</span>
+                                <span class="card-expired-date">18 May 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END OF credit card-->
+                    ​
+                </li>
+                <li>
+                    <!--credit card-->
+                    <div class="credit-card">
+                        <img src="assets/img/dummy-card.svg" alt="">
+                        <div class="card-data">
+                            <span class="card-number">**** 71923</span>
+                            <div class="card-expired">
+                                <span class="card-expired-desc">Expiration date</span>
+                                <span class="card-expired-date">18 May 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END OF credit card-->
+                    ​
+                </li>
+                <li>
+                    <!--credit card-->
+                    <div class="credit-card">
+                        <img src="assets/img/dummy-card.svg" alt="">
+                        <div class="card-data">
+                            <span class="card-number">**** 1234</span>
+                            <div class="card-expired">
+                                <span class="card-expired-desc">Expiration date</span>
+                                <span class="card-expired-date">18 May 2022</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--END OF credit card-->
+                </li>
+            </ul>
+        </div>
+        <!--END OF Credit card block-->
+        ​
+        <!--Bank account block-->
+        <div id="paymentBank" class="account-bl">
+            <ul class="slider-account" id="slider-account">
+                <li>
+                    <!--bank card-->
+                    <div class="bank-card">
+                        <img src="assets/img/dummy-card.svg" alt="">
+                        <div class="card-data">
+                            <span class="card-number">**** 7890</span>
+                        </div>
+                    </div>
+                    <!--END OF bank card-->
+                    ​
+                </li>
+                <li>
+                    <!--bank card-->
+                    <div class="bank-card">
+                        <img src="assets/img/dummy-card.svg" alt="">
+                        <div class="card-data">
+                            <span class="card-number">**** 3456</span>
+                        </div>
+                    </div>
+                    <!--END OF bank card-->
+                </li>
+                <li>
+                    <!--bank card-->
+                    <div class="bank-card">
+                        <img src="assets/img/dummy-card.svg" alt="">
+                        <div class="card-data">
+                            <span class="card-number">**** 2222</span>
+                        </div>
+                    </div>
+                    <!--END OF bank card-->
+                </li>
+            </ul>
+            ​
+            ​
+        </div>
+        <!--END OF Bank account block-->
+        ​
+        <div class="btn-container">
+            <button type="button" id="btn-continue" name="btn-continue" class="form-btn-type2">Continue</button>
+        </div>
+        ​
+        ​
+    </div>
+</div>
+<!--END OF main-->
+​
+​
+​
+<!--modal error-->
+<div class="modal" id="errorModal">
+    <div class="modal-container">
+        <h2 class="modal-title">Error</h2>
+        <p class="modal-desc">Something went wrong. <br>Try again.</p>
+        <div class="btn-modal-container">
+            <a href="#" class="modal-btn type3">Cancel</a>
+            <a href="#" class="modal-btn type2">Try again</a>
+        </div>
+    </div>
+</div>
+<!--END OF modal error-->
+​
+<!--modal error 2-->
+<div class="modal" id="errorModal2">
+    <div class="modal-container">
+        <h2 class="modal-title">Error</h2>
+        <p class="modal-desc">Invalid payment method. <br>Try again with another payment method.</p>
+        ​
+        <a href="#" class="modal-btn type2">Accept</a>
+        ​
+    </div>
+</div>
+<!--END OF modal error 2-->
+​
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
+​
+<script>
+    function showPayment( elem ){
+        var tabs = document.getElementById("paymentTabs");
+        var activeLink = event.target;
+        var creditLayer = document.getElementById("paymentCredit");
+        var bankLayer = document.getElementById("paymentBank");
+        if(elem == 1) { //Credit card
+            console.log('Credit');
+            tabs.children[1].classList.remove("active");
+            creditLayer.classList.add("show");
+            bankLayer.classList.remove("show");
+        } else { //Bank account
+            console.log('Bank');
+            tabs.children[0].classList.remove("active");
+            creditLayer.classList.remove("show");
+            bankLayer.classList.add("show");
+        }
+        activeLink.classList.add("active");}
+    var sliderCredit = tns({
+        container: '.slider-credit',
+        center: true,
+        items: 1,
+        autoWidth: true,
+        gutter: 10,
+        swipeAngle: false,
+        mouseDrag: true,
+        loop: false,
+        slideBy: 1,
+        autoplay: false,
+        controls: false,
+        navPosition: 'bottom',
+        preventScrollOnTouch: 'auto',
+    });
+   var sliderBank = tns({
+       container: '.slider-account',
+       center: true,
+       items: 1,
+       autoWidth: true,
+       gutter: 10,
+       swipeAngle: false,
+       mouseDrag: true,
+       loop: false,
+       slideBy: 1,
+       autoplay: false,
+       controls: false,
+       navPosition: 'bottom',
+       preventScrollOnTouch: 'auto',
+   });
+</script>
+</body>
+</html>

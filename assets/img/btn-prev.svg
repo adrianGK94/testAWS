@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>ic_flecha_pago_atras</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ic/flecha/pago/atras">
+            <g id="Group-6-Copy-2">
+                <circle id="Oval" fill="#FFFFFF" cx="15" cy="15" r="14"></circle>
+                <path d="M15,0.5 C6.99187113,0.5 0.5,6.99187113 0.5,15 C0.5,23.0081289 6.99187113,29.5 15,29.5 C23.0081289,29.5 29.5,23.0081289 29.5,15 C29.5,6.99187113 23.0081289,0.5 15,0.5 Z M15,1.5 C22.4558441,1.5 28.5,7.54415588 28.5,15 C28.5,22.4558441 22.4558441,28.5 15,28.5 C7.54415588,28.5 1.5,22.4558441 1.5,15 C1.5,7.54415588 7.54415588,1.5 15,1.5 Z" id="Oval" fill="#76B900"></path>
+                <path d="M13,9.5 C13.2454599,9.5 13.4496084,9.67687516 13.4919443,9.91012437 L13.5,10 L13.5,19.5 L23,19.5 C23.2454599,19.5 23.4496084,19.6768752 23.4919443,19.9101244 L23.5,20 C23.5,20.2454599 23.3231248,20.4496084 23.0898756,20.4919443 L23,20.5 L13,20.5 C12.7545401,20.5 12.5503916,20.3231248 12.5080557,20.0898756 L12.5,20 L12.5,10 C12.5,9.72385763 12.7238576,9.5 13,9.5 Z" id="Path-4" fill="#76B900" transform="translate(18.000000, 15.000000) rotate(45.000000) translate(-18.000000, -15.000000) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

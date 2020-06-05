@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="166px" height="102px" viewBox="0 0 166 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group 11</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="100%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#2DB96C" offset="0%"></stop>
+            <stop stop-color="#9FD745" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="166" height="102"></rect>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="100%" y2="50%" id="linearGradient-4">
+            <stop stop-color="#2DB96C" offset="0%"></stop>
+            <stop stop-color="#9FD745" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="73.3767948%" y2="50%" id="linearGradient-5">
+            <stop stop-color="#2DB96C" offset="0%"></stop>
+            <stop stop-color="#9FD745" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="41.5591385%" y2="50%" id="linearGradient-6">
+            <stop stop-color="#2DB96C" offset="0%"></stop>
+            <stop stop-color="#9FD745" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="-1.11022302e-14%" y1="50%" x2="22.7309445%" y2="50%" id="linearGradient-7">
+            <stop stop-color="#2DB96C" offset="0%"></stop>
+            <stop stop-color="#9FD745" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bg/tarjeta/miniatura/verde">
+            <g id="Group-11">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="Rectangle" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                <g id="Group-12" mask="url(#mask-3)">
+                    <rect id="Rectangle" fill="url(#linearGradient-4)" x="0" y="0" width="166" height="46"></rect>
+                    <rect id="Rectangle-Copy-11" fill="url(#linearGradient-5)" x="0" y="46" width="166" height="28"></rect>
+                    <rect id="Rectangle-Copy-12" fill="url(#linearGradient-6)" x="0" y="74" width="166" height="19"></rect>
+                    <rect id="Rectangle-Copy-13" fill="url(#linearGradient-7)" x="0" y="93" width="166" height="9"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

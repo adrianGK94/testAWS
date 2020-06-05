@@ -5,6 +5,7 @@ import detailMerchantView from "./detailMerchantView";
 import MerchantService from '../services/merchant-service';
 import SharedDataService from "../services/shared-data-service";
 import createModal from "../components/modal-component";
+import gtag from 'ga-gtag';
 
 let originalMerchantList = [];
 let filteredList = [];
@@ -36,29 +37,27 @@ function createViewInHtml() {
 
   const html = `
   <body class="bg-gray">
-    <!--header-->
-    <header role="banner">
-      <div class="row">
-        <div class="header-main">
-          <a class="header-link" id="back-button"><span class="icon-back"></span></a>
-          <h1 class="header-title">${i18n.merchantList.title}</h1>
-        </div>
-      </div>
-    </header>
-    <!--END OF header-->
+
 
     <!--main-->
     <div role="main" class="merchants-content">
       <div class="row">
       
-         <form>
-            <fieldset>
-                <div class="search-form-row">
-                    <input type="text" id="txt-search" name="txt-search" class="search-form-txt" placeholder="${i18n.merchantList.searchMerchants}">
-                    <button type="button" id="btn-search" name="btn-search" class="btn-search"><span class="icon-search"></span></button>
-                </div>
-            </fieldset>
-         </form>
+        <!--AÑADIDO-->
+        <div class="back-link-container">
+          <a href="#" id="btn-back" class="back-link icon-back">${i18n.merchants.back.title}</a>
+        </div>
+        <!--END OF AÑADIDO-->
+
+      
+        <form>
+          <fieldset>
+            <div class="search-form-row">
+              <input type="text" id="txt-search" name="txt-search" class="search-form-txt" placeholder="${i18n.merchants.search.title}">
+              <button type="button" id="btn-search" name="btn-search" class="btn-search"><span class="icon-search"></span></button>
+            </div>
+          </fieldset>
+        </form>
          
         <!--list-->
         <div class="merchants-scroll-container" id="merchants-scroll-container"></div>
@@ -73,6 +72,7 @@ function createViewInHtml() {
 }
 
 function paintMerchantList(list) {
+  const i18n = locale();
   const container = document.getElementById('merchants-scroll-container');
   let isEmpty = true;
   list.forEach(group => {
@@ -82,6 +82,10 @@ function paintMerchantList(list) {
       title.className = 'merchant-title';
       title.innerHTML = `<h2 class="merchant-title">${group.merchantType.toUpperCase()}</h2>`;
       container.appendChild(title);
+      const childcontainer = document.createElement('div');
+      childcontainer.className = 'merchant-card-container';
+      container.appendChild(childcontainer);
+
     }
     // Set empty flag
     if (group.merchants.length > 0) {
@@ -91,10 +95,10 @@ function paintMerchantList(list) {
     group.merchants.forEach(merchant => {
       // Only set merchant if the promotion list is empty
       if (merchant.promotions.length <= 0) {
-        paintItemInList(container, merchant);
+        paintItemInList(container.lastChild, merchant, );
       } else {
         merchant.promotions.forEach(promo => {
-          paintItemInList(container, merchant, promo);
+          paintItemInList(container.lastChild, merchant, promo);
         });
       }
     });
@@ -103,23 +107,24 @@ function paintMerchantList(list) {
   if (isEmpty) {
     const child = document.createElement('p');
     child.className = 'empty-list';
-    child.innerHTML = 'No results found';
+    child.innerHTML = i18n.merchants.noResults.title;
     container.appendChild(child);
   }
 }
 
 function paintItemInList(container, merchant, promo) {
+  const i18n = locale();
   let html = `
   <div class="merchant-card-content">
     <img src="${merchant.merchantDetails.merchantLogo}" alt="" class="card-logo">
     <div class="merchant-card-detail">
       <h3 class="merchant-detail-title">${merchant.merchantDetails.merchantBrand}</h3>
-      <p class="merchant-detail-highlight">${merchant.merchantDetails.enrollmentShort}</p>
+      <p class="merchant-detail-highlight">${merchant.merchantDetails.enrollmentTitle}</p>
       <p class="merchant-detail-desc">${merchant.merchantDetails.enrollmentShort}</p>
-      <a class="merchant-detail-link button-detail" data-merchantId="${merchant.cdMerchantId}" data-promoId="${promo ? promo.promoId : 'no-promo'}">View details</a>
+      <a class="merchant-detail-link button-detail" data-merchantId="${merchant.cdMerchantId}" data-promoId="${promo ? promo.promoId : 'no-promo'}">${i18n.merchants.details.title}</a>
     </div>
   </div>
-  <button type="button" data-merchantId="${merchant.cdMerchantId}" data-promoId="${promo ? promo.promoId : 'no-promo'}" name="btn-apply" class="btn-card">Apply</button>`;
+  <button type="button" data-merchantId="${merchant.cdMerchantId}" data-promoId="${promo ? promo.promoId : 'no-promo'}" name="btn-apply" class="btn-card">${i18n.merchants.button.apply}</button>`;
   const child = document.createElement('div');
   child.className = 'merchant-card';
   child.innerHTML = html;
@@ -139,6 +144,10 @@ function setEventListeners() {
     if (e.target.value === undefined || e.target.value === null || e.target.value === '') {
       filteredList = originalMerchantList;
     } else {
+      gtag('event', 'Buscar_Merchant', {
+        'event_category': 'Lista_merchants',
+        'event_label': 'Búsqueda'
+      });
       filteredList = originalMerchantList.map(group => {
         return {
           merchantType: group.merchantType,
@@ -164,7 +173,7 @@ function setEventListeners() {
 }
 
 function clickBackBtn() {
-  const backBtn = document.getElementById("back-button");
+  const backBtn = document.getElementById("btn-back");
   backBtn.addEventListener('click', () => {
     window.location = '/';
   });
@@ -176,23 +185,33 @@ function clickDetailBtn() {
     detailButton[i].addEventListener('click', e => {
       const merchantId = e.target.getAttribute('data-merchantId');
       const promoId = e.target.getAttribute('data-promoId');
+      gtag('event', 'Merchant_'+merchantId, {
+        'event_category': 'Lista_merchants',
+        'event_label': 'Ver_detalle'
+      });
       openMerchantDetails(merchantId, promoId);
     });
   }
 }
 
 function clickApplyBtn() {
+  const i18n = locale();
   const applyMerchant = document.querySelectorAll(".btn-card");
   for (let i = 0; i < applyMerchant.length; i++) {
     applyMerchant[i].addEventListener('click', (e) => {
+      SharedDataService.getPaymentMethods();
       if (SharedDataService.hasPaymentMethods()) {
         const merchantId = e.target.getAttribute('data-merchantId');
         const promoId = e.target.getAttribute('data-promoId');
+        gtag('event', 'Registrarme_'+merchantId, {
+          'event_category': 'Lista_merchants',
+          'event_label': 'Registrarme'
+        });
         openRegister(merchantId, promoId);
       } else {
         createModal({
-          title: 'Error',
-          body: 'To apply for this service it is necessary to have a bank card. Please, contact your bank to hire it.',
+          title: i18n.merchants.error.title,
+          body: i18n.merchants.error.description,
           btn: 1
         });
       }
@@ -222,7 +241,7 @@ function getMerchantByPromoId(merchantId, promoId) {
     for (const merchant of group.merchants) {
       if (promoId !== 'no-promo') {
         const promoSelected = merchant.promotions.find(promo => '' + promo.promoId === '' + promoId);
-        if (promoSelected) {
+        if (promoSelected && merchant.cdMerchantId.toString() === merchantId.toString()) {
           merchantSelected = merchant;
           merchantSelected.promoSelected = promoSelected;
           break;

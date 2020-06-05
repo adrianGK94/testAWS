@@ -15,7 +15,9 @@ export const mockMerchantList = [{
           "termsConditions": "https://www.google.es",
           "androidStoreUrl": "https://play.google.com/store/apps/details?id=com.mo2o.balearia&gl=ES",
           "iOSStoreUrl": "https://apps.apple.com/es/app/bale%C3%A0ria-reserva-tu-viaje/id476264273",
-          "webUrl": "https://www.balearia.com/es/reservar"
+          "webUrl": "https://www.balearia.com/es/reservar",
+          "additionalConditionsUrl": "https://www.google.es",
+          "cardConditionsUrl": "https://www.google.es"
         },
         "form": [{
             // none -> 400, existingUsernameWithPayment -> 409, existingUsername -> 409, validValue -> 200
@@ -83,7 +85,9 @@ export const mockMerchantList = [{
           "termsConditions": "https://www.google.es",
           "androidStoreUrl": "https://play.google.com/store/apps/details?id=com.mo2o.balearia&gl=ES",
           "iOSStoreUrl": "https://apps.apple.com/es/app/bale%C3%A0ria-reserva-tu-viaje/id476264273",
-          "webUrl": "https://www.balearia.com/es/reservar"
+          "webUrl": "https://www.balearia.com/es/reservar",
+          "additionalConditionsUrl": "https://www.google.es",
+          "cardConditionsUrl": "https://www.google.es"
         },
         "form": [{
             "dataType": "text",
@@ -123,7 +127,9 @@ export const mockMerchantList = [{
           "termsConditions": "https://www.google.es",
           "androidStoreUrl": "https://play.google.com/store/apps/details?id=com.mo2o.balearia&gl=ES",
           "iOSStoreUrl": "https://apps.apple.com/es/app/bale%C3%A0ria-reserva-tu-viaje/id476264273",
-          "webUrl": "https://www.balearia.com/es/reservar"
+          "webUrl": "https://www.balearia.com/es/reservar",
+          "additionalConditionsUrl": "https://www.google.es",
+          "cardConditionsUrl": "https://www.google.es"
         },
         "form": [{
           "dataType": "text",
@@ -152,7 +158,9 @@ export const mockMerchantList = [{
           "termsConditions": "https://www.google.es",
           "androidStoreUrl": "https://play.google.com/store/apps/details?id=com.mo2o.balearia&gl=ES",
           "iOSStoreUrl": "https://apps.apple.com/es/app/bale%C3%A0ria-reserva-tu-viaje/id476264273",
-          "webUrl": "https://www.balearia.com/es/reservar"
+          "webUrl": "https://www.balearia.com/es/reservar",
+          "additionalConditionsUrl": "https://www.google.es",
+          "cardConditionsUrl": "https://www.google.es"
         },
         "form": [{
             "dataType": "text",
@@ -204,7 +212,9 @@ export const mockMerchantList = [{
           "paymentMethod": 3,
           "phoneVerification": false,
           "privacyPolicy": "https://www.google.es",
-          "termsConditions": "https://www.google.es"
+          "termsConditions": "https://www.google.es",
+          "additionalConditionsUrl": "https://www.google.es",
+          "cardConditionsUrl": "https://www.google.es"
         },
         "form": [{
           "dataType": "text",
@@ -226,7 +236,8 @@ export const mockMerchantList = [{
           "paymentMethod": 3,
           "phoneVerification": false,
           "privacyPolicy": "https://www.google.es",
-          "termsConditions": "https://www.google.es"
+          "termsConditions": "https://www.google.es",
+
         },
         "form": [{
           "dataType": "text",

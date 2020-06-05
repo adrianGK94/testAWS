@@ -1,0 +1,6 @@
+[
+  { "cc": "CLP", "symbol": "$", "name": "Chilean peso" },
+  { "cc": "EUR", "symbol": "\u20ac", "name": "European Euro" },
+  { "cc": "MXN", "symbol": "$", "name": "Mexican peso" },
+  { "cc": "USD", "symbol": "US$", "name": "United States dollar" }
+]

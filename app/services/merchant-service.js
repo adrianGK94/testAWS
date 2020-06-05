@@ -99,20 +99,58 @@ export default class MerchantService {
 
   /**
    * POST  After having registered a new customer on merchant, the Issuer can add a customer’s Bank Account to the merchant.
-   * 
-   * @param {enrollmentId: string, customerId: string, bankAccountData: object, integrityCheck: string} data 
+   *
+   * @param {enrollmentId: string, customerId: string, bankAccountData: object, integrityCheck: string} data
    */
   static bankAccountRegistration(data) {
     return fetch(`${baseUrl}/enrollment/register/bankaccount`, {
         method: 'post',
         mode: 'cors',
         headers: {
-          'x-api-key': xApiKey,
-          'Content-Type': 'application/json'
+            'x-api-key': xApiKey,
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(data)
-      })
-      .then(res => res)
-      .catch(error => console.log('Request failed', error));
+    })
+        .then(res => res)
+        .catch(error => console.log('Request failed', error));
+  }
+
+  /**
+   * POST  The Issuer can send the full list of values to attempt the customer registration on merchant with payment data.
+   *
+   * @param {registrationData: {}, cdMerchantId: string, cardData: object, bankData: object, promoId: string, integrityCheck: string} data
+   */
+  static merchantRegistrationWithPayment(data) {
+    return fetch(`${baseUrl}/enrollment/register-with-payment`, {
+        method: 'post',
+        mode: 'cors',
+        headers: {
+            'x-api-key': xApiKey,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res)
+        .catch(error => console.log('Request failed', error));
+  }
+
+  /**
+   * POST  The Issuer can send validation code from EMAIL or CODE.
+   *
+   * @param {enrollmentRequestId: string, validationType: string, code: string} data
+   */
+  static enrollmentConfirmation(data) {
+    return fetch(`${baseUrl}/enrollment/confirmation`, {
+        method: 'post',
+        mode: 'cors',
+        headers: {
+            'x-api-key': xApiKey,
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(res => res)
+        .catch(error => console.log('Request failed', error));
   }
 }

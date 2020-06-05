@@ -1,4 +1,5 @@
 import '../styles/styles.css';
+import '../styles/datepicker.min.css';
 import Setup from './config/setup';
 import CardDynamic from './model/cardDynamic';
 import Card from "./model/card";
@@ -7,12 +8,15 @@ import updateCardView from "./views/updateCardView";
 import addNewCardView from "./views/addNewCardView";
 import addMerchantView from "./views/addMerchantView";
 import SharedDataService from "./services/shared-data-service";
+import gtag, { install } from 'ga-gtag';
 
 (function (window) {
 
   const _init = (_) => {
 
     sessionStorage.clear();
+
+    install('UA-XXXXXXXXX-1');
 
     let CD = new CardDynamic();
 
@@ -66,9 +70,16 @@ import SharedDataService from "./services/shared-data-service";
           }, 1000);
         }
       },
-      addNewMerchant: function (paymentMethods, personalInfo) {
-        SharedDataService.setPaymentMethods(paymentMethods);
-        SharedDataService.setDefaultPersonalInfo(personalInfo);
+      addNewMerchant: function (paymentMethods = {}, personalInfo = {
+        creditCards: [],
+        bankAccounts: []
+      }) {
+        if (paymentMethods) {
+          SharedDataService.setPaymentMethods(paymentMethods);
+        }
+        if (personalInfo) {
+          SharedDataService.setDefaultPersonalInfo(personalInfo);
+        }
         addMerchantView();
       }
     };

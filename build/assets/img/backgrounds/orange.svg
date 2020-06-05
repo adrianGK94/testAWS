@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="166px" height="102px" viewBox="0 0 166 102" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>Group 8</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="0%" y1="42.6061066%" x2="100%" y2="59.8322788%" id="linearGradient-1">
+            <stop stop-color="#FFAE01" offset="0%"></stop>
+            <stop stop-color="#FF7F00" offset="51.7894654%"></stop>
+            <stop stop-color="#FE5418" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="166" height="102"></rect>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="bg/tarjeta/miniatura/naranja">
+            <g id="Group-8">
+                <mask id="mask-3" fill="white">
+                    <use xlink:href="#path-2"></use>
+                </mask>
+                <use id="Rectangle-Copy-5" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                <path d="M168.945161,13.6548387 L143.241935,13.6548387 L143.241935,-12.0483871 L168.945161,-12.0483871 L168.945161,13.6548387 Z M167.33871,-10.4419355 L144.848387,-10.4419355 L144.848387,12.0483871 L167.33871,12.0483871 L167.33871,-10.4419355 Z" id="Rectangle" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                <path d="M154.754839,53.0129032 L124.767742,53.0129032 L124.767742,23.0258065 L154.754839,23.0258065 L154.754839,53.0129032 Z M152.612903,25.1677419 L126.909677,25.1677419 L126.909677,50.8709677 L152.612903,50.8709677 L152.612903,25.1677419 Z" id="Rectangle-Copy-6" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                <path d="M171.622581,84.8741935 L148.06129,84.8741935 L148.06129,61.3129032 L171.622581,61.3129032 L171.622581,84.8741935 Z M170.016129,62.9193548 L149.667742,62.9193548 L149.667742,83.2677419 L170.016129,83.2677419 L170.016129,62.9193548 Z" id="Rectangle-Copy-7" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                <path d="M137.619355,77.1096774 L125.303226,77.1096774 L125.303226,64.7935484 L137.619355,64.7935484 L137.619355,77.1096774 Z M136.548387,65.8645161 L126.374194,65.8645161 L126.374194,76.0387097 L136.548387,76.0387097 L136.548387,65.8645161 Z" id="Rectangle-Copy-8" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                <path d="M119.948387,24.6322581 L109.774194,24.6322581 L109.774194,14.4580645 L119.948387,14.4580645 L119.948387,24.6322581 Z M118.877419,15.5290323 L110.845161,15.5290323 L110.845161,23.5612903 L118.877419,23.5612903 L118.877419,15.5290323 Z" id="Rectangle-Copy-9" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                <path d="M135.745161,10.4419355 L128.783871,10.4419355 L128.783871,3.48064516 L135.745161,3.48064516 L135.745161,10.4419355 Z M135.209677,4.01612903 L129.319355,4.01612903 L129.319355,9.90645161 L135.209677,9.90645161 L135.209677,4.01612903 Z" id="Rectangle-Copy-10" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)"></path>
+                <path d="M113.790323,57.5645161 L106.829032,57.5645161 L106.829032,50.6032258 L113.790323,50.6032258 L113.790323,57.5645161 Z M113.254839,51.1387097 L107.364516,51.1387097 L107.364516,57.0290323 L113.254839,57.0290323 L113.254839,51.1387097 Z" id="Rectangle-Copy-10" fill-opacity="0.2" fill="#FFFFFF" fill-rule="nonzero" mask="url(#mask-3)"></path>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,7 +1,9 @@
+import locale from "../config/locale/i18n";
 import addMerchantView from "./addMerchantView";
 import registerMerchantView from "./registerMerchantView";
 import SharedDataService from "../services/shared-data-service";
 import createModal from "../components/modal-component";
+import gtag from "ga-gtag";
 
 export default function detailMerchantView(merchant) {
   // Create HTML parent view
@@ -11,15 +13,13 @@ export default function detailMerchantView(merchant) {
 }
 
 function createViewInHtml(merchant) {
+  const i18n = locale();
+
   let html = `
    <body class="bg-gray">
     <!--header-->
     <header role="banner">
       <div class="row">
-        <div class="header-main">
-            <a class="header-link" id="back-button"><span class="icon-back"></span></a>
-            <h1 class="header-title">Details</h1>
-        </div>
         <div class="header-account">
             <div class="header-account-container">
                 <img src="${merchant.merchantDetails.merchantLogo}" alt="">
@@ -44,25 +44,14 @@ function createViewInHtml(merchant) {
         <!-- END OF promo -->
         
         <div class="btn-container">
-            <button type="button" id="btn-continue" name="btn-continue" class="form-btn-type2">Apply</button>
+            <!--AÑADIDO-->
+            <a href="javascript:void(0)" title="Go back" id="btn-back" class="btn-back">${i18n.merchantDetail.button.back}</a>
+            <!--END OF AÑADIDO-->
+            <button type="button" id="btn-continue" name="btn-continue" class="form-btn-type2">${i18n.merchantDetail.button.apply}</button>
         </div>
       </div>
     </div>
     <!--END OF main-->
-
-    <!--modal error-->
-    <div class="modal" id="errorModal">
-      <div class="modal-container">
-        <h2 class="modal-title">Error</h2>
-        <p class="modal-desc">To apply for this service it is necessary to have a bank card.<br>
-          Please, contact your bank to hire it.</p>
-        <div class="btn-modal-container">
-          <a href="#" class="modal-btn type3">Cancel</a>
-          <a href="#" class="modal-btn type2">Try again</a>
-        </div>
-      </div>
-    </div>
-    <!--END OF modal error-->
 
   </body>`;
   // Add to DOM
@@ -70,18 +59,20 @@ function createViewInHtml(merchant) {
 }
 
 function paintPromotionDetail(promoDetail) {
+  const i18n = locale();
   if (promoDetail) {
+    const url = validateUrl(promoDetail.offerTerms);
     let html = '<div class="merchant-detail-available">';
-    html += `<div class="detail-available-header"><h3 class="detail-available-title">Available campaign</h3>`;
+    html += `<div class="detail-available-header"><h3 class="detail-available-title">${i18n.merchantDetail.campaign.title}</h3>`;
     if (promoDetail.validDate) {
-      html += `<span class="detail-available-date">Valid until ${promoDetail.validDate}</span>`;
+      html += `<span class="detail-available-date">${i18n.merchantDetail.valid.title} ${promoDetail.validDate}</span>`;
     }
     html += `
       </div>
       <div class="detail-available-content"><p>${promoDetail.offerDetails}</p></div>
       <!--terms-->
-      <a href="${promoDetail.offerTerms}" target="_blank" class="merchant-detail-terms">
-          <span class="detail-link">Legal Terms and Conditions of the offer</span>
+      <a href="${url}" target="_blank" class="merchant-detail-terms">
+          <span class="detail-link">${i18n.merchantDetail.terms.title}</span>
           <span class="icon-arrow"></span>
       </a>
       <br/>
@@ -93,20 +84,32 @@ function paintPromotionDetail(promoDetail) {
 }
 
 function setEventListeners(merchant) {
+  const i18n = locale();
   // Back button go to home
-  const backBtn = document.getElementById("back-button");
+  const backBtn = document.getElementById("btn-back");
   backBtn.addEventListener('click', () => addMerchantView());
   // Click apply button
   const applyBtn = document.getElementById("btn-continue");
   applyBtn.addEventListener('click', () => {
     if (SharedDataService.hasPaymentMethods()) {
+      gtag('event', 'Merchant_'+merchant.cdMerchantId, {
+        'event_category': 'Detalle',
+        'event_label': 'Registrarme'
+      });
       registerMerchantView(merchant);
     } else {
       createModal({
-        title: 'Error',
-        body: 'To apply for this service it is necessary to have a bank card. Please, contact your bank to hire it.',
+        title: i18n.merchantDetail.error.title,
+        body: i18n.merchantDetail.error.description,
         btn: 1
       });
     }
   });
+}
+
+function validateUrl(url) {
+  if (url !== '' && url.indexOf("http://") === -1 && url.indexOf("https://") === -1) {
+    url = 'https://' + url;
+  }
+  return url;
 }

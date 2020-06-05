@@ -1,0 +1,188 @@
+[
+  {
+    "code": "US",
+    "name_es": "Estados Unidos",
+    "name_en": "United States of America",
+    "prefix_phone": "+1"
+  },
+  {
+    "code": "GB",
+    "name_es": "Reino Unido",
+    "name_en": "United Kingdom",
+    "prefix_phone": "+44"
+  },
+  {
+    "code": "CA",
+    "name_es": "Canadá",
+    "name_en": "Canada",
+    "prefix_phone": "+1"
+  },
+  {
+    "code": "MX",
+    "name_es": "México",
+    "name_en": "Mexico",
+    "prefix_phone": "+52"
+  },
+  {
+    "code": "AU",
+    "name_es": "Australia",
+    "name_en": "Australia",
+    "prefix_phone": "+61"
+  },
+  {
+    "code": "CN",
+    "name_es": "China",
+    "name_en": "China",
+    "prefix_phone": "+86"
+  },
+  {
+    "code": "DE",
+    "name_es": "Alemania",
+    "name_en": "Germany",
+    "prefix_phone": "+49"
+  },
+  {
+    "code": "BE",
+    "name_es": "Bélgica",
+    "name_en": "Belgium",
+    "prefix_phone": "+32"
+  },
+  {
+    "code": "NL",
+    "name_es": "Países Bajos",
+    "name_en": "Netherlands",
+    "prefix_phone": "+31"
+  },
+  {
+    "code": "DK",
+    "name_es": "Dinamarca",
+    "name_en": "Denmark",
+    "prefix_phone": "+45"
+  },
+  {
+    "code": "TR",
+    "name_es": "Turquía",
+    "name_en": "Turkey",
+    "prefix_phone": "+90"
+  },
+  {
+    "code": "ID",
+    "name_es": "Indonesia",
+    "name_en": "Indonesia",
+    "prefix_phone": "+62"
+  },
+  {
+    "code": "JO",
+    "name_es": "Jordania",
+    "name_en": "Jordan",
+    "prefix_phone": "+962"
+  },
+  {
+    "code": "IN",
+    "name_es": "India",
+    "name_en": "India",
+    "prefix_phone": "+91"
+  },
+  {
+    "code": "KH",
+    "name_es": "Camboya",
+    "name_en": "Cambodia",
+    "prefix_phone": "+855"
+  },
+  {
+    "code": "ET",
+    "name_es": "Etiopía",
+    "name_en": "Ethiopia",
+    "prefix_phone": "+251"
+  },
+  {
+    "code": "PE",
+    "name_es": "Perú",
+    "name_en": "Peru",
+    "prefix_phone": "+51"
+  },
+  {
+    "code": "CU",
+    "name_es": "Cuba",
+    "name_en": "Cuba",
+    "prefix_phone": "+53"
+  },
+  {
+    "code": "AR",
+    "name_es": "Argentina",
+    "name_en": "Argentina",
+    "prefix_phone": "+54"
+  },
+  {
+    "code": "CL",
+    "name_es": "Chile",
+    "name_en": "Chile",
+    "prefix_phone": "+56"
+  },
+  {
+    "code": "BO",
+    "name_es": "Bolivia",
+    "name_en": "Bolivia",
+    "prefix_phone": "+591"
+  },
+  {
+    "code": "ES",
+    "name_es": "España",
+    "name_en": "Spain",
+    "prefix_phone": "+34"
+  },
+  {
+    "code": "BD",
+    "name_es": "Bangladés",
+    "name_en": "Bangladesh",
+    "prefix_phone": "+880"
+  },
+  {
+    "code": "PK",
+    "name_es": "Pakistán",
+    "name_en": "Pakistan",
+    "prefix_phone": "+92"
+  },
+  {
+    "code": "NG",
+    "name_es": "Nigeria",
+    "name_en": "Nigeria",
+    "prefix_phone": "+234"
+  },
+  {
+    "code": "JP",
+    "name_es": "Japón",
+    "name_en": "Japan",
+    "prefix_phone": "+81"
+  },
+  {
+    "code": "AT",
+    "name_es": "Austria",
+    "name_en": "Austria",
+    "prefix_phone": "+43"
+  },
+  {
+    "code": "BR",
+    "name_es": "Brasil",
+    "name_en": "Brazil",
+    "prefix_phone": "+55"
+  },
+  {
+    "code": "PH",
+    "name_es": "Filipinas",
+    "name_en": "Philippines",
+    "prefix_phone": "+63"
+  },
+  {
+    "code": "VN",
+    "name_es": "Vietnam",
+    "name_en": "Vietnam",
+    "prefix_phone": "+84"
+  },
+  {
+    "code": "CR",
+    "name_es": "Costa Rica",
+    "name_en": "Costa Rica",
+    "prefix_phone": "+506"
+  }
+]

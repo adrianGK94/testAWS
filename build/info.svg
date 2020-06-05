@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="13px" height="13px" viewBox="0 0 13 13" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 59.1 (86144) - https://sketch.com -->
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
     <title>ic_info</title>
     <desc>Created with Sketch.</desc>
-    <g id="Registro-en-Merchants-(Celia)" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="02.1_Registro---Datos-personales-(simple)" transform="translate(-22.000000, -427.000000)">
-            <g id="ic_info" transform="translate(22.000000, 427.000000)">
-                <circle id="Oval" fill="#9E2130" cx="6.5" cy="6.5" r="6"></circle>
+    <g id="Web-Responsive-Enrollment" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="02.1_Registro---Datos-personales-(simple)" transform="translate(-22.000000, -431.000000)">
+            <g id="ic/info_verde" transform="translate(22.000000, 431.000000)">
+                <circle id="Oval" fill="#76B900" cx="6.5" cy="6.5" r="6"></circle>
                 <polygon id="i" fill="#FFFFFF" points="5.5 8.99228033 5.5 5.5 7 5.5 7 10"></polygon>
                 <circle id="Oval-2" fill="#FFFFFF" cx="6.25" cy="3.75" r="1"></circle>
             </g>

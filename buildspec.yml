@@ -10,6 +10,9 @@ phases:
 
       # Upgrade AWS CLI to the latest version
       - pip install --upgrade awscli
+  pre_build:
+    commands:
+      - echo Nothing to do in the pre_build phase...
   build:
     commands:
       # Use AWS SAM to package the application by using AWS CloudFormation
